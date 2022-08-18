@@ -2,12 +2,12 @@
 
 A quick startup for installing Redis Sentinel with Docker Compose.
 ## How to run
-The shell script is working well in macOS. You're welcome to contribute on other platforms.
-
-Start by executing 
+Start by executing
 ```
 ./run.sh
 ```
+The shell script has been verified in macOS. You're welcome to contribute on other platforms.
+
 ## How to connect
 Redis master is published on port 6379.  
 The sentinels are published on the following port:
