@@ -2,43 +2,45 @@ version: '3.7'
 
 services:
  
-  app:
-    image: some-image
-    links:
-      - redis-sentinel
-     
   redis-master:
     image: redis:6-alpine
     volumes:
-      - "./.data:/data"
+      - "./.master-data:/data"
     ports:
       - "6379:6379"
- 
-  redis-slave:
-    image: redis:6-alpine
-    command: redis-server --slaveof redis-master 6379
-    links:
-      - redis-master
-    volumes:
-      - "./.data:/data"
+    environment:
+      master:
+
+#  redis-slave:
+#    image: redis:6-alpine
+#    command: redis-server --slaveof redis-master 6379
+#    links:
+#      - redis-master
+#    volumes:
+#      - "./.slave-data:/data"
      
   # Instance 1
   redis-sentinel:
-    build: 
+    build:
       context: ./redis-sentinel
     links:
       - redis-master
- 
+    ports:
+      - "26379:26379"
   # Instance 2
   redis-sentinel2:
-    build: 
+    build:
       context: ./redis-sentinel
     links:
       - redis-master
- 
+    ports:
+      - "26380:26379"
+
   # Instance 3
   redis-sentinel3:
-    build: 
+    build:
       context: ./redis-sentinel
     links:
       - redis-master
+    ports:
+      - "26381:26379"
