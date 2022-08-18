@@ -8,8 +8,6 @@ services:
       - "./.master-data:/data"
     ports:
       - "6379:6379"
-    environment:
-      master:
 
 #  redis-slave:
 #    image: redis:6-alpine
@@ -27,6 +25,10 @@ services:
       - redis-master
     ports:
       - "26379:26379"
+    environment:
+      - MASTER_HOST
+    env_file:
+      - .env
   # Instance 2
   redis-sentinel2:
     build:
@@ -35,6 +37,10 @@ services:
       - redis-master
     ports:
       - "26380:26379"
+    environment:
+      - MASTER_HOST
+    env_file:
+      - .env
 
   # Instance 3
   redis-sentinel3:
@@ -44,3 +50,7 @@ services:
       - redis-master
     ports:
       - "26381:26379"
+    environment:
+      - MASTER_HOST
+    env_file:
+      - .env
