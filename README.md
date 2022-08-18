@@ -27,3 +27,6 @@ An example of redis client configuration is as below:
         - 'localhost:26380'
         - 'localhost:26381'
 ```
+## Known issue
+* Service is not reachable when IP address gets changed. 
+  Workaround: restart by executing `run.sh`.
