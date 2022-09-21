@@ -23,8 +23,8 @@ An example of redis client configuration is as below:
       master: 'redismaster'
       password: ''
       nodes:
-        - 'localhost:26379'
-        - 'localhost:26380'
-        - 'localhost:26381'
+        - 'localhost:36379'
+        - 'localhost:36380'
+        - 'localhost:36381'
 ```
 
