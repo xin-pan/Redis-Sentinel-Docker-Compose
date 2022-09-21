@@ -11,9 +11,9 @@ The shell script has been verified in macOS. You're welcome to contribute on oth
 ## How to connect
 Redis master is published on port 6379.  
 The sentinels are published on the following port:
-* 26379
-* 26380
-* 26381
+* 36379
+* 36380
+* 36381
 
 An example of redis client configuration is as below:
 ```
@@ -27,6 +27,4 @@ An example of redis client configuration is as below:
         - 'localhost:26380'
         - 'localhost:26381'
 ```
-## Known issue
-* Service is not reachable when IP address gets changed. 
-  Workaround: restart by executing `run.sh`.
+
