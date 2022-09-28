@@ -3,6 +3,7 @@ version: '3.7'
 services:
  
   redis-master:
+    restart: always
     image: redis:6-alpine
     volumes:
       - "./.master-data:/data"
@@ -19,6 +20,7 @@ services:
      
   # Instance 1
   redis-sentinel:
+    restart: always
     build:
       context: ./redis-sentinel
     links:
@@ -31,6 +33,7 @@ services:
       - .env
   # Instance 2
   redis-sentinel2:
+    restart: always
     build:
       context: ./redis-sentinel
     links:
@@ -44,6 +47,7 @@ services:
 
   # Instance 3
   redis-sentinel3:
+    restart: always
     build:
       context: ./redis-sentinel
     links:
